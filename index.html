@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة المسجد - فهرس الكتب</title>
+    <style>
+        /* --- General Styles (Same as previous, with additions) --- */
+        :root {
+            --primary-color: #087f5b; /* Rich Green */
+            --secondary-color: #b8860b; /* Dark Gold */
+            --background-color: #f8f9fa;
+            --card-background-color: #ffffff;
+            --text-color: #343a40;
+            --light-text-color: #6c757d;
+            --border-color: #e9ecef;
+            --header-bg: var(--primary-color);
+            --header-text-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.07);
+            --hover-shadow-color: rgba(0, 0, 0, 0.12);
+        }
+        @font-face {
+            font-family: 'Tajawal';
+            src: url('https://fonts.gstatic.com/s/tajawal/v9/Iura6YBj_oCad4k1nzSBC45I.woff2') format('woff2');
+            font-weight: 400; font-style: normal; font-display: swap;
+        }
+        body {
+            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+            margin: 0; padding: 0; background-color: var(--background-color); color: var(--text-color);
+            line-height: 1.7; font-size: 17px;
+        }
+
+        /* --- Header & Search Bar (Same as previous) --- */
+        .header {
+            background-color: var(--header-bg);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm-90-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm-90-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm-90-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm-90-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm-90-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            padding: 25px 30px; box-shadow: 0 4px 12px var(--shadow-color); position: sticky;
+            top: 0; z-index: 1000; text-align: center; border-bottom: 4px solid var(--secondary-color);
+        }
+        .header h1 {
+            margin: 0 0 20px 0; color: var(--header-text-color); font-size: 2.5em;
+            font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .search-container { width: 100%; max-width: 650px; margin: 0 auto; position: relative; }
+        #searchInput {
+            width: 100%; padding: 14px 25px 14px 50px; font-size: 1.1em;
+            border: 1px solid transparent; border-radius: 50px; transition: all 0.3s;
+            box-sizing: border-box; font-family: inherit; background-color: rgba(255, 255, 255, 0.95);
+        }
+        .search-container::before {
+             content: '🔍'; position: absolute; left: 20px; top: 50%;
+             transform: translateY(-50%); font-size: 1.2em; color: var(--light-text-color); pointer-events: none;
+        }
+        #searchInput:focus {
+            outline: none; border-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(184, 134, 11, 0.4); background-color: #fff;
+        }
+        #search-stats {
+            margin-top: 15px; color: rgba(255, 255, 255, 0.85); font-size: 1em;
+            text-align: center; height: 22px; transition: color 0.3s;
+        }
+
+        /* --- Main Content --- */
+        #libraryContainer { padding: 30px; max-width: 1300px; margin: 0 auto; }
+
+        /* --- Collapsible Category Section (Same as previous) --- */
+        .category-section {
+            background-color: var(--card-background-color); border-radius: 12px; margin-bottom: 25px;
+            border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 2px 5px var(--shadow-color);
+            transition: all 0.3s ease-in-out;
+        }
+        .category-section:hover { box-shadow: 0 5px 15px var(--hover-shadow-color); }
+        .category-section.hidden { display: none; }
+        .category-section summary {
+            padding: 20px 25px; font-size: 1.6em; font-weight: bold; color: var(--primary-color); cursor: pointer;
+            list-style: none; position: relative; outline: none; border-bottom: 1px solid transparent; transition: background-color 0.2s;
+        }
+        .category-section summary:hover { background-color: #f8f9fa; }
+        .category-section[open] > summary { border-bottom-color: var(--border-color); color: var(--secondary-color); }
+        .category-section summary::-webkit-details-marker { display: none; }
+        .category-section summary::before {
+            content: '＋'; font-size: 1em; font-weight: bold; color: var(--primary-color);
+            position: absolute; left: 25px; top: 50%; transform: translateY(-50%) rotate(0deg); transition: transform 0.3s ease;
+        }
+        .category-section[open] > summary::before { content: '−'; transform: translateY(-50%) rotate(180deg); }
+
+        .books-grid {
+            padding: 25px; background-color: #fafbfc; display: grid;
+            grid-template-columns: 1fr; /* Single column for book cards */
+            gap: 20px;
+        }
+
+        /* --- Book Card (MODIFIED FOR IMAGE AND DESCRIPTION) --- */
+        .book-card {
+            background-color: var(--card-background-color); border: 1px solid var(--border-color);
+            border-radius: 8px; display: flex; overflow: hidden; /* Changed */
+            box-shadow: 0 3px 6px var(--shadow-color);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .book-card.hidden { display: none; }
+        .book-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px var(--hover-shadow-color); }
+
+        .book-image-container {
+            flex-shrink: 0;
+            width: 150px;
+            background-color: #f1f3f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-image {
+            width: 100%; height: 100%; object-fit: cover; /* Cover the area */
+        }
+        .placeholder-icon {
+            font-size: 50px;
+            color: #ced4da;
+        }
+
+        .book-details-container {
+            flex-grow: 1; padding: 20px; display: flex; flex-direction: column;
+        }
+        .book-title {
+            font-size: 1.4em; font-weight: bold; color: var(--primary-color);
+            margin: 0 0 5px 0;
+        }
+        .book-author {
+            color: var(--text-color); margin: 0 0 15px 0; font-size: 1.05em; font-weight: normal;
+        }
+        .book-author::before { content: 'المؤلف: '; font-weight: bold; color: var(--light-text-color); }
+        
+        .book-description { /* NEW */
+            font-size: 0.95em;
+            color: #495057;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            max-height: 65px; /* Limit height to about 3 lines */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .book-description::before { /* NEW */
+            content: 'نبذة:';
+            display: block;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: var(--light-text-color);
+        }
+        
+        .book-meta {
+            margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--border-color);
+            font-size: 0.9em; color: var(--light-text-color); display: flex; justify-content: space-between; align-items: center;
+        }
+        .book-meta span { display: block; }
+        .book-meta .edition { flex-grow: 1; }
+        .book-meta .volumes::before { content: '📚 '; font-weight: bold; }
+
+        /* --- Footer (Same as previous) --- */
+        footer {
+            text-align: center; padding: 25px; margin-top: 30px; color: var(--light-text-color); font-size: 0.95em;
+            border-top: 1px solid var(--border-color); background-color: #fff;
+        }
+        .admin-link-button {
+            display: inline-block; margin-top: 15px; padding: 10px 22px;
+            background-image: linear-gradient(45deg, var(--primary-color), #0ca678);
+            color: white; text-decoration: none; border-radius: 30px; font-size: 1em; font-weight: bold;
+            transition: all 0.3s; box-shadow: 0 4px 10px rgba(8, 127, 91, 0.3);
+        }
+        .admin-link-button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(8, 127, 91, 0.4); }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .header { padding: 20px 15px; }
+            .header h1 { font-size: 2em; }
+            #libraryContainer { padding: 20px; }
+            .category-section summary { padding: 18px; font-size: 1.4em; }
+            
+            /* Make book card stack on mobile */
+            .book-card { flex-direction: column; }
+            .book-image-container { width: 100%; height: 200px; }
+            .book-details-container { padding: 15px; }
+            .book-title { font-size: 1.3em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>فهرس مكتبة مسجد الطيب العقبي</h1>
+        <div class="search-container">
+            <input type="search" id="searchInput" placeholder="ابحث في العناوين، المؤلفين، أو النبذات..." aria-label="شريط البحث">
+            <div id="search-stats"></div>
+        </div>
+    </header>
+
+    <main id="libraryContainer">
+        <!-- The library content will be dynamically generated here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - تم تطوير هذا الفهرس من قبل زكريا لنقر</p>
+        <a href="admin.html" target="_blank" class="admin-link-button">الإدارة</a>
+    </footer>
+
+    <script>
+    // --- Default Embedded Book Data (Used only on first load) ---
+    // ADDED empty image and description to all books for consistency
+    const defaultLibraryData = [
+        {"category":"قسم التفسير وعلوم القرآن","books":[
+            {"edition":"دار القلم الطبعة الرابعة 2016","author":"السمين الحلبي","title":"الدر المصون في علوم الكتاب المكنون","volumes":"11","image":"","description":""},
+            {"edition":"دار اليمامة ط12/2014","author":"محي الدين الدرويش","title":"إعراب القرآن الكريم وبيانه","volumes":"9","image":"","description":""}
+            /* ... Paste the rest of your defaultLibraryData here, ensuring each book object has: ,"image":"","description":"" ... */
+        ]},
+        // ... other categories
+    ];
+
+    // --- JavaScript Logic (UPDATED with image/description) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const libraryContainer = document.getElementById('libraryContainer');
+        const searchInput = document.getElementById('searchInput');
+        const searchStats = document.getElementById('search-stats');
+        const storageKey = 'mosqueLibraryData';
+        let totalBooks = 0;
+        let currentLibraryData = [];
+
+        const loadLibraryData = () => {
+            const storedData = localStorage.getItem(storageKey);
+            if (storedData) {
+                try {
+                    const parsedData = JSON.parse(storedData);
+                    // *** Data Migration: Ensure old data gets new fields ***
+                    parsedData.forEach(category => {
+                        category.books.forEach(book => {
+                            if (book.image === undefined) book.image = "";
+                            if (book.description === undefined) book.description = "";
+                        });
+                    });
+                    return parsedData;
+                } catch (e) {
+                    console.error("Error parsing data from localStorage:", e);
+                    localStorage.setItem(storageKey, JSON.stringify(defaultLibraryData));
+                    return defaultLibraryData;
+                }
+            } else {
+                defaultLibraryData.forEach(category => {
+                    category.books.forEach(book => {
+                        book.image = "";
+                        book.description = "";
+                    });
+                });
+                localStorage.setItem(storageKey, JSON.stringify(defaultLibraryData));
+                return defaultLibraryData;
+            }
+        };
+
+        const normalizeText = (text) => {
+            if (!text) return '';
+            return text.replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/[ًٌٍَُِّْ]/g, '').toLowerCase().trim();
+        };
+
+        const renderLibrary = (libraryData) => {
+            libraryContainer.innerHTML = ''; 
+            let totalBookCount = 0;
+            
+            libraryData.forEach(category => {
+                totalBookCount += category.books.length;
+                
+                const categorySection = document.createElement('details');
+                categorySection.className = 'category-section';
+
+                const summary = document.createElement('summary');
+                summary.innerHTML = `${category.category} <span style="font-weight:normal; font-size:0.8em; color:#666;">(عدد الكتب: ${category.books.length})</span>`;
+                
+                const booksGrid = document.createElement('div');
+                booksGrid.className = 'books-grid';
+
+                category.books.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.className = 'book-card';
+
+                    // --- NEW CARD STRUCTURE ---
+                    const imagePart = `
+                        <div class="book-image-container">
+                            ${book.image 
+                                ? `<img src="${book.image}" alt="${book.title}" class="book-image">`
+                                : `<div class="placeholder-icon">📖</div>`
+                            }
+                        </div>
+                    `;
+
+                    const detailsPart = `
+                        <div class="book-details-container">
+                            <div class="book-title">${book.title || 'عنوان غير متوفر'}</div>
+                            <div class="book-author">${book.author || 'مؤلف غير معروف'}</div>
+                            ${book.description ? `
+                                <div class="book-description">${book.description}</div>
+                            ` : ''}
+                            <div class="book-meta">
+                                <span class="edition">${book.edition || 'طبعة غير محددة'}</span>
+                                <span class="volumes">${book.volumes || '1'}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    bookCard.innerHTML = imagePart + detailsPart;
+                    booksGrid.appendChild(bookCard);
+                });
+
+                categorySection.appendChild(summary);
+                categorySection.appendChild(booksGrid);
+                libraryContainer.appendChild(categorySection);
+            });
+            totalBooks = totalBookCount;
+            searchStats.textContent = `إجمالي عدد الكتب: ${totalBooks}`;
+        };
+
+        const handleSearch = () => {
+            const searchTerm = normalizeText(searchInput.value);
+            const allCategories = document.querySelectorAll('.category-section');
+            let visibleBooksCount = 0;
+
+            if (!searchTerm) {
+                searchStats.textContent = `إجمالي عدد الكتب: ${totalBooks}`;
+                allCategories.forEach(category => {
+                    category.classList.remove('hidden');
+                    category.open = false;
+                    const books = category.querySelectorAll('.book-card');
+                    books.forEach(book => book.classList.remove('hidden'));
+                });
+                return;
+            }
+
+            // Using the full data object for searching is more reliable
+            currentLibraryData.forEach((categoryData, categoryIndex) => {
+                let hasVisibleBook = false;
+                const categoryElement = allCategories[categoryIndex];
+                const bookElements = categoryElement.querySelectorAll('.book-card');
+
+                categoryData.books.forEach((bookData, bookIndex) => {
+                    const title = normalizeText(bookData.title);
+                    const author = normalizeText(bookData.author);
+                    const description = normalizeText(bookData.description); // Search description
+                    
+                    const bookElement = bookElements[bookIndex];
+
+                    if (title.includes(searchTerm) || author.includes(searchTerm) || description.includes(searchTerm)) {
+                        bookElement.classList.remove('hidden');
+                        hasVisibleBook = true;
+                        visibleBooksCount++;
+                    } else {
+                        bookElement.classList.add('hidden');
+                    }
+                });
+                
+                if (hasVisibleBook) {
+                    categoryElement.classList.remove('hidden');
+                    categoryElement.open = true;
+                } else {
+                    categoryElement.classList.add('hidden');
+                }
+            });
+            
+            searchStats.textContent = `تم العثور على ${visibleBooksCount} نتيجة.`;
+        };
+        
+        searchInput.addEventListener('input', handleSearch);
+
+        currentLibraryData = loadLibraryData();
+        renderLibrary(currentLibraryData);
+    });
+    </script>
+</body>
+</html>
